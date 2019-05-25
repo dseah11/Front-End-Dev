@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    </head>
+    <body>
+        <nav>
+            <a href="#contact-us" onclick="changePage('contact.html')">Contact us</a>
+            <a href="#about-us" onclick="changePage('about.html')">About us</a>
+            <a href="#course" onclick="changePage('course-listing.html')">Course Listings</a>
+            <a href="#register" onclick="changePage('register.html')">Registration Form</a>
+        </nav>
+        <div class="content-box"></div>
+        <script>
+            function changePage(url){
+                $.ajax({
+                    url:url,
+                    success: function(data){
+                        $(".content-box").html(data);
+                    },
+                });
+                
+            }
+        </script>
+    </body>
+</html>
