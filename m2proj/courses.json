@@ -6,21 +6,21 @@
             "course_description": "Placeholder",
             "course_recommend": "Recommended for complete beginners",
             "course_price": 450.20
-        }
+        },
         {
             "course_id":"HTML002",
             "course_name": "Advanced HTML Course",
             "course_description": "Placeholder",
             "course_recommend": "Recommended for Professionals",
             "course_price": 1200.90
-        }
+        },
         {
             "course_id":"JAVA001",
             "course_name": "Basic JAVA Course",
             "course_description": "Placeholder",
             "course_recommend": "Recommended for complete beginners",
             "course_price": 450.20
-        }
+        },
         {
             "course_id":"JAVA002",
             "course_name": "Advanced JAVA Course",

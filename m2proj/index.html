@@ -1,27 +1,108 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    </head>
-    <body>
+
+<head>
+    <meta charset="utf-8">
+    <!-- <meta name="description" content="ABC Learning Centre - Providing Cutting Edge IT Lessons...Placeholder"> -->
+
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+</head>
+
+<body>
+    <header>
         <nav>
-            <a href="#contact-us" onclick="changePage('contact.html')">Contact us</a>
-            <a href="#about-us" onclick="changePage('about.html')">About us</a>
-            <a href="#course" onclick="changePage('course-listing.html')">Course Listings</a>
-            <a href="#register" onclick="changePage('register.html')">Registration Form</a>
+            <a><img id="logo" src="img/abc-learning-logo.png"></a>
+            <ul>
+                <div id="tabs">
+                    <li class="tabs"><a href="#contact-us" onclick="changePage('contact.html')">Contact us</a></li>
+                    <li class="tabs"> <a href="#about-us" onclick="changePage('about.html')">About us</a></li>
+                    <li class="tabs"> <a href="#course" onclick="changePage('course-listing.html')">Course Listings</a>
+                    </li>
+                    <li class="tabs"> <a href="#register" onclick="changePage('registration.html')">Registration
+                            Form</a></li>
+                </div>
+
+            </ul>
+
         </nav>
-        <div class="content-box"></div>
-        <script>
-            function changePage(url){
-                $.ajax({
-                    url:url,
-                    success: function(data){
-                        $(".content-box").html(data);
-                    },
-                });
-                
-            }
-        </script>
-    </body>
+    </header>
+    <main>
+        <div class="content-box">
+
+            <h1>Welcome to ABC Learning Centre</h1>
+            <article>
+                <h2>Latest News</h2>
+                <p>Placeholder</p>
+            </article>
+            <article>
+                <h2>Popular Courses</h2>
+                <p>Placeholder</p>
+            </article>
+            <p>914 translation by H. Rackham
+
+                "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born
+                and I will give you
+                a complete account of the system, and expound the actual teachings of the great explorer of the truth,
+                the master-builder of human happiness. No one rejects, dislikes,
+                or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue
+                pleasure rationally encounter consequences that are extremely painful.
+                Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain,
+                but because occasionally circumstances occur in which toil and pain can procure him some great pleasure.
+                To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain
+                some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure
+                that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?"
+            </p>
+        </div>
+    </main>
+    <footer>
+        <nav>
+            <!-- Link containers based on categories? -->
+            <div class="link-container">
+                <h3>Some links</h3>
+                <ul class="related-links">
+
+                    <li><a href="#">A link</a></li>
+                    <li><a href="#">A link</a></li>
+                    <li><a href="#">A link</a></li>
+                </ul>
+
+            </div>
+            <div class="link-container">
+                <h3>Some other links</h3>
+                <ul class="related-links">
+
+                    <li><a href="#">A link</a></li>
+                    <li><a href="#">A link</a></li>
+                    <li><a href="#">A link</a></li>
+                </ul>
+            </div>
+            <div class="link-container">
+                <h3>Even more links links</h3>
+                <ul class="related-links">
+                    <li><a href="#">A link</a></li>
+                    <li><a href="#">A link</a></li>
+                    <li><a href="#">A link</a></li>
+                </ul>
+            </div>
+            <div id="other-links">
+                <a href="#site-map">Site Map</a>
+                <a href="#policies">Privacy policy</a>
+            </div>
+        </nav>
+    </footer>
+
+    <script>
+        function changePage(url) {
+            $.ajax({
+                url: url,
+                success: function (data) {
+                    $(".content-box").html(data);
+                },
+            });
+
+        }
+    </script>
+</body>
+
 </html>

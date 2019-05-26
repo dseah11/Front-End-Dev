@@ -1,0 +1,54 @@
+<h1>Registering Interest</h1>
+<h2>Express Your Intrest Now!</h2>
+<p>Placeholder</p>
+<form onsubmit="showResponse()">
+    <table>
+
+        <tr>
+            <td>First Name:</td>
+            <td><input name="firstName" type="text" required /></td>
+        </tr>
+        <tr>
+            <td>Last Name:</td>
+            <td><input name="lastName" type="text" required /></td>
+        </tr>
+        <tr>
+            <td>
+                Gender:
+            </td>
+            <td>
+                Male<input name="gender" type="radio" value="male" checked />
+                Female<input name="gender" type="radio" value="female">
+            </td>
+
+        </tr>
+        <tr>
+            <td>
+                Residential Address:
+            </td>
+            <td>
+                <textarea name="address" rows="10" cols="60"></textarea>
+            </td>
+        <tr>
+            <td>
+                Phone No:
+            </td>
+            <td><input name="phoneNo" type="text" maxlength="11" /></td>
+        <tr>
+            <td>Select Course:</td>
+            <td>
+                <select name="course">
+
+                    <option value="course1">Course 1</option>
+                    <option value="course2">Course 2</option>
+                    <option value="course3">Course 3</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" name="submit" value="Submit Interest"></td>
+        </tr>
+
+    </table>
+</form>
