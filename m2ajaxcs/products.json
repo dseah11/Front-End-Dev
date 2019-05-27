@@ -1,0 +1,29 @@
+{
+ "products": [
+    {
+      "id": 1, 
+      "name": "Mushrooms",
+       "description":"This is a mushroom",
+       "price": "5.45",
+       "imgPath": "img/products/mushroom.jpg"
+    },
+    {
+       "name": "Potatos",
+       "description":"This is a potato",
+       "price": "2.45",
+       "imgPath": "img/products/potato.jpg"
+    },
+    {
+       "name": "carrots",
+       "description":"This is a carrot",
+       "price": "3.99",
+       "imgPath": "img/products/carrot.jpg"
+    },
+    {
+       "name": "Tomatoes",
+       "description":"This is a tomato",
+       "price": "6.45",
+       "imgPath": "img/products/tomatoes.jpg"
+    }
+]
+}
