@@ -6,6 +6,7 @@ body{
     margin: 0;
     padding: 0rem;
     background-image: url("img/blackboard-chalkboard-communication-355988.jpg");
+    bottom:0;
 }
 
 /* Top navigation bar settings */

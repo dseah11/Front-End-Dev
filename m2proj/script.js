@@ -25,8 +25,11 @@ function showCourseDetail(id){
         });
     });
 }
-function showThankYou(){
-    $(".content-box").html("<h1>Thank you</h1>");
+function showResponse(){
+    $(".content-box").html(`<h1>Thank you></h1> 
+                            <p>Your Form has been submitted and we will get back
+                            to you soon.</p>`);
+
 }
 
 //Submit events done by js. Not what is required here. Validation must be done in js in this case
