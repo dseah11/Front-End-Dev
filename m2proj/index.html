@@ -6,12 +6,14 @@
     <!-- <meta name="description" content="ABC Learning Centre - Providing Cutting Edge IT Lessons...Placeholder"> -->
 
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="course.css">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="script.js"></script>
 </head>
 
 <body>
     <header>
-        <nav>
+        <nav id="top-nav">
             <a><img id="logo" src="img/abc-learning-logo.png"></a>
             <ul>
                 <div id="tabs">
@@ -27,6 +29,7 @@
 
         </nav>
     </header>
+    <div class="seperator"></div>
     <main>
         <div class="content-box">
 
@@ -56,53 +59,33 @@
         </div>
     </main>
     <footer>
-        <nav>
+        <nav id='bot-nav'>
             <!-- Link containers based on categories? -->
-            <div class="link-container">
+            <div id='related-links'>
                 <h3>Some links</h3>
-                <ul class="related-links">
+                <ul id="related-links">
 
+                    <li><a href="#">A link</a></li>
+                    <li><a href="#">A link</a></li>
+                    <li><a href="#">A link</a></li>
                     <li><a href="#">A link</a></li>
                     <li><a href="#">A link</a></li>
                     <li><a href="#">A link</a></li>
                 </ul>
 
             </div>
-            <div class="link-container">
-                <h3>Some other links</h3>
-                <ul class="related-links">
 
-                    <li><a href="#">A link</a></li>
-                    <li><a href="#">A link</a></li>
-                    <li><a href="#">A link</a></li>
-                </ul>
-            </div>
-            <div class="link-container">
-                <h3>Even more links links</h3>
-                <ul class="related-links">
-                    <li><a href="#">A link</a></li>
-                    <li><a href="#">A link</a></li>
-                    <li><a href="#">A link</a></li>
-                </ul>
-            </div>
+            <div class="seperator"></div>
             <div id="other-links">
-                <a href="#site-map">Site Map</a>
-                <a href="#policies">Privacy policy</a>
+                <ul>
+                    <li><a href="#site-map">Site Map</a></li>
+                    <li><a href="#policies">Privacy policy</a></li>
+                </ul>
+
+
             </div>
         </nav>
     </footer>
-
-    <script>
-        function changePage(url) {
-            $.ajax({
-                url: url,
-                success: function (data) {
-                    $(".content-box").html(data);
-                },
-            });
-
-        }
-    </script>
 </body>
 
 </html>

@@ -2,45 +2,13 @@ html{
     padding: 0;
     margin: 0;
 }
-nav{
-    /* position: fixed; */
-    background: rgb(196, 132, 13);
-    height: 6rem;
-    width: 100%;
-    top:0;
-    left:0;
+body{
     margin: 0;
-    min-height: 40px;
+    padding: 0rem;
+    background-image: url("img/blackboard-chalkboard-communication-355988.jpg");
 }
 
-nav ul{
-    margin: 0;
-    top:100em;
-    padding: 0;
-}
-ul li{
-    color: blanchedalmond;
-    list-style: none;
-    float: left;
-    padding: .8em;
-    width: 10%;
-    text-align: center;
-    margin: 0;
-    font-size: 1.3em;
-    line-height: 2;
-}
-a:link{
-    outline: solid red;
-    text-decoration: none;
-}
-a:hover{
-    background: white;
-}
-.tabs{
-    padding: 1em;
-    margin: auto;
-    height:100%;
-}
+/* Top navigation bar settings */
 #logo{
     float:left;
     width: 80px;
@@ -48,31 +16,108 @@ a:hover{
     padding: 0 10px;
     margin: 0 5px 0 30px;
 }
-
-footer{
-    clear: both;
-    position: fixed;
-    bottom: 0;
+nav{
+    background: beige;
+    height: 5rem;
     width: 100%;
-    height: 15%;
-    border: 0ch;
+    top:0;
+    left:0;
+    margin: 0 0 20px 0;
+    min-height: 40px;
+
 }
-footer nav{
+
+#top-nav ul{
+    margin: 0;
+    top:100em;
     padding: 0;
-    margin: 0;
-    border: 0;
-    height: 100%;
 }
-.link-container{
+#top-nav li{
+    list-style: none;
     float: left;
-    width: 33.33%;
-    height: 60%;
-}
-.related-links{
-    clear: both;
-    display: block;
-}
-body{
+    padding: .92em;
+    text-align: center;
     margin: 0;
-    padding: 0rem;
+    font-size: 1.3em;
+    line-height: 2;
 }
+#tabs li:hover{
+    background: wheat;
+}
+/* Link settings in general */
+a{
+    color:olive;
+}
+a:hover{
+    color:chartreuse;
+}
+a:link{
+    text-decoration: none;
+}
+
+/* Container settings */
+.content-box{
+    background:white;
+    border: 2px solid gray;
+    margin: 3em auto 4em auto;
+    width: 70%;
+    max-height: 25rem;
+    overflow: auto;
+}
+/* Footer settings */
+#bot-nav{
+    background: beige;
+    bottom: 0;
+    height:125px;
+    margin:0;
+}
+#bot-nav h3{
+    color:greenyellow;
+    padding: 10px;
+    text-align: center;
+    margin:0;
+}
+#related-links{
+    height:80px;
+}
+#related-links ul{
+    margin: 0;
+}
+#related-links li{
+    list-style: none;
+    float: left;
+    padding: .92em;
+    text-align: center;
+    margin: 0;
+    font-size: 1.3em;
+    line-height: 2;
+
+    font-size: .98em;
+    width: 13%;
+    padding: 0 0 0 25px;
+}
+/* Removes float left */
+.seperator{
+    clear: both;
+    margin: 0;
+    padding: 0;
+}
+#other-links{
+    height:30px;
+    width:100%;
+    margin:0;
+}
+#other-links li{
+    list-style: none;
+    float: left;
+    padding: .92em;
+    text-align: center;
+    margin: 0;
+    font-size: 1.3em;
+    line-height: 2;
+
+    width:45%;
+    font-size: .8em;
+    padding: 0 0.9em;
+}
+

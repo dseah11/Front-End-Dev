@@ -1,29 +1,30 @@
 <h1>Contact Us</h1>
 <p>Hello there! please contact us!</p>
-<table id="contact-form" class="forms">
-    <form onsubmit="createResponse()">
+<form onsubmit="showResponse()">
+    <table id="contact-form">
+
         <tr>
-            <td>Your Name (required): </td>>
+            <td>Your Name (required): </td>
             <td>
-                <input type="text" id="contact-name" name="contact-name" required placeholder="Your name here">
+                <input name="contact-name" type="text" required/>
             </td>
         </tr>
         <tr>
             <td>Your Contact Number</td>
             <td>
-                <input type="text" id="contact-num" name="contact-num" maxlength="9" placeholder="Contact number">
+                <input type="text" name="contact-num" maxlength="9">
             </td>
         </tr>
         <tr>
             <td>Your email (required):</td>
             <td>
-                <input type="email" id="contact-email" name="contact-email" required placeholder="your@email.com">
+                <input type="email" name="contact-email" required/>
             </td>
         </tr>
         <tr>
             <td>Question Category</td>
             <td>
-                <select id="contact-type" required>
+                <select id="contact-type">
                     <option disabled>-- General Question --</option>
                     <option value="gen1">Know more about a course</option>
                     <option value="gen2">Find out about transfer policy</option>
@@ -41,8 +42,8 @@
         </tr>
         <tr>
             <td></td>
-            <td><input type="submit" value="Submit">
+            <td><input type="submit" name="submit" value="Submit">
             </td>
         </tr>
-    </form>
-</table>
+    </table>
+</form>
