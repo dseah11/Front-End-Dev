@@ -6,7 +6,6 @@ body{
     margin: 0;
     padding: 0rem;
     background-image: url("img/blackboard-chalkboard-communication-355988.jpg");
-    bottom:0;
 }
 
 /* Top navigation bar settings */
@@ -24,13 +23,10 @@ nav{
     top:0;
     left:0;
     margin: 0 0 20px 0;
-    min-height: 40px;
-
 }
 
 #top-nav ul{
     margin: 0;
-    top:100em;
     padding: 0;
 }
 #top-nav li{
@@ -40,7 +36,6 @@ nav{
     text-align: center;
     margin: 0;
     font-size: 1.3em;
-    line-height: 2;
 }
 #tabs li:hover{
     background: wheat;
@@ -62,7 +57,8 @@ a:link{
     border: 2px solid gray;
     margin: 3em auto 4em auto;
     width: 70%;
-    max-height: 25rem;
+    min-height: 400px;
+    max-height: 400px;
     overflow: auto;
 }
 /* Footer settings */
@@ -91,7 +87,6 @@ a:link{
     text-align: center;
     margin: 0;
     font-size: 1.3em;
-    line-height: 2;
 
     font-size: .98em;
     width: 13%;
@@ -115,7 +110,6 @@ a:link{
     text-align: center;
     margin: 0;
     font-size: 1.3em;
-    line-height: 2;
 
     width:45%;
     font-size: .8em;
