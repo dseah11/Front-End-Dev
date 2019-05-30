@@ -1,7 +1,7 @@
 <h1>Registering Interest</h1>
 <h2>Express Your Intrest Now!</h2>
 <p>Placeholder</p>
-<form onsubmit="showResponse()" method="POST" class="form">
+<form method="POST">
     <table>
 
         <tr>
@@ -39,16 +39,22 @@
             <td>
                 <select name="course">
 
-                    <option value="course1">Course 1</option>
-                    <option value="course2">Course 2</option>
-                    <option value="course3">Course 3</option>
+                    <option value="course1">Basic HTML</option>
+                    <option value="course2">Basic Java</option>
+                    <option value="course3">Advanced HTML</option>
                 </select>
             </td>
         </tr>
         <tr>
             <td></td>
-            <td><input type="submit" name="submit" value="Submit Interest"></td>
+            <td><input type="submit" name="submit" value="Submit"></td>
         </tr>
 
     </table>
 </form>
+<script>
+    $("form").submit(function (event) {
+    $(".content-box").html("<h1>Thank you for contacting us</h1>" +
+        "<p>We will get back to you as soon as we can</p>");
+});
+</script>

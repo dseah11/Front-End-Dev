@@ -1,0 +1,37 @@
+<div class="main-section">
+    <h1 id="c-title">Course Title: </h1>
+    <h2 class="sub-head">Description</h2>
+    <p id="c-desc"></p>
+    <h2 class="sub-head">Who is this course Recommended For?</h2>
+    <p id="c-reccomend"></p>
+    <h2 class="sub-head">Course Price: </h2>
+    <p id="c-price">In SGD: $</p>
+    <button type="button" onclick="changePage('registration.html')">Register Now!</button>
+</div>
+
+<!-- side nav for conversion of price -->
+<div class="side-nav">
+    <h3 id="c-convertprice">Convert the course to another currency</h3>
+    <table>
+        <tr>
+            <td>Currency:</td>
+            <td>
+                <select id="price-option" onchange="showCurrency($('#c-price').text())">
+                    <option disabled selected hidden>Choose Currency</option>
+                    <option value="SGD">Singapore Dollar</option>
+                    <option value="MYR">Malaysian Ringgit</option>
+                    <option value="INR">Indian Rupees</option>
+                    <option value="PHP">Philippine Peso</option>
+                    <option value="IDR">Indonesian Rupiah</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Converted course Cost:</td>
+
+        </tr>
+        <tr>
+            <td id="price-indicator"></td>
+        </tr>
+    </table>
+</div>

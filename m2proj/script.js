@@ -1,73 +1,112 @@
+
+//When document is read, load home page
+$(document).ready(function(){
+    $('#loading').css('visibility','visible');
+    loadHome();
+    $('#loading').css('visibility','hidden');
+})
+
+//changes pages by calling ajax and replacing the contents of .content-box
 function changePage(url) {
-    $.ajax({
-        url: url,
-        success: function (data) {
-            $(".content-box").html(data);
-        },
-    });
+    $('#loading').css('visibility','visible');
+    if(url === ""){
+        loadHome();
+    }
+    else{
+        $.ajax({
+            url: url,
+            success: function (data) {
+                console.log("visible!");
+                $('#loading').css('visibility','hidden');
+                console.log("not visible!");
+                $(".content-box").html(data);
+                
+            },
+        });
+    }
+    
 }
 
+// This function loads a course template. Upon loading,
+// the course json file is loaded and its data is extracted based on the id provided
+// there might be a better way of doign this though
 function showCourseDetail(id) {
-    $.getJSON("courses.json", function (data) {
-        $.each(data.courses, function () {
-            if (this.course_id === id) {
-                var courseDetails = '<section id="course_details"';
-                courseDetails += "<h2>Title: " + this.course_name + "</h2>" +
-                    "<h3>About the course</h3>" +
-                    "<p>" + this.course_description + "</p>" +
-                    "<h3>Who this course is for</h3>" +
-                    "<p>" + this.course_recommend +
-                    "<h3>Course Price in SGD$: SGD$ " + this.course_price + "</h3>" +
-                    '<h3>Choose your currency</h3>' +
-                    '<select onchange="showCurrency(' + this.course_price + ')" id="currency-selector">' +
-                    `<option disabled>--Choose your currency--</option>
-                                    <option>SGD</option>
-                                    <option value="inr">INR</option>
-                                    <option value="php">PHP</option>
-                                    <option value="myr">MYR</option>
-                                    <option value="idr">IDR</option>
-                                </select>
-                                <h3 id="price-indicator"></h3>
-                                </section>`;
-                // console.log(courseDetails);
-                $(".content-box").html(courseDetails);
-            }
+    changePage('course-template.html');
+    $(document).ready(function(){
+        $.getJSON("courses.json", function (data) {
+            $.each(data.courses, function () {
+                if (this.course_id === id) {
+                    //change page to course template
+                    
+                    $("#c-title").append(this.course_name);
+                    $("#c-desc").text(this.course_description);
+                    $("#c-reccomend").text(this.course_recommend);
+                    $("#c-price").append(this.course_price);
+
+                }
+            });
+            
         });
     });
 }
 //Submit events done by js. Not what is required here. Validation must be done in js in this case
 function showCurrency(cost) {
-    var sample = $("#currency-selector option:selected").text();
-    calcCurrency(cost, sample);
+    var currCode = $("#price-option").val();
+    var amount= parseInt(cost.replace('In SGD: $',''));
+    calcCurrency(currCode, amount);
 
     
 }
-function calcCurrency(cost, sample){
+//calc the currency and places the amount back into the page
+function calcCurrency(currCode, amount){
     var url = "currency.json";
+    var details = "";
     $.getJSON(url, function (data) {
-        var details = "Hi";
-        
-        console.log(sample);
-        console.log("Currency js started");
-        $.each(url.currencies, function (result) {
-
-            console.log(sample);
-            if (sample == this.code) {
-                changeCost = cost * this.conversion;
+        // console.log("Currency Json started");
+        $.each(data.currencies, function(){
+            if (currCode == this.code) {
+                // console.log(this.code);
+                // console.log(currCode);
+                // console.log("Before change: " + amount);
+                amount *= this.conversion;
+                details += this.name + ": "+ this.code + " " + amount;
+            // console.log(details);
+            // console.log("after change: " + amount)
             }
-            details = "Course price in " + this.name + " (" + this.code + "): " + changeCost;
-            console.log(details);
-        });
+        })
+        $("#price-indicator").text(details);
     });
-    $("#price-indicator").text(details);
+    
+}
+
+//Looks intimidating but this is merely placing the home page html in a string
+//before loading up into the content-box
+function loadHome(){
+    var home = `
+    <h1>Welcome to ABC Learning Centre</h1>
+    <article>
+        <h2>Latest News</h2>
+        <p>Placeholder</p>
+    </article>
+    <article>
+        <h2>Popular Courses</h2>
+        <p>Placeholder</p>
+    </article>
+    <p>914 translation by H. Rackham
+
+        "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born
+        and I will give you
+        a complete account of the system, and expound the actual teachings of the great explorer of the truth,
+        the master-builder of human happiness. No one rejects, dislikes,
+        or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue
+        pleasure rationally encounter consequences that are extremely painful.
+        Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain,
+        but because occasionally circumstances occur in which toil and pain can procure him some great pleasure.
+        To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain
+        some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure
+        that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?"
+    </p>`;
+    $(".content-box").html(home);
 }
 
 
-function showResponse() {
-    console.log("Response triggered.");
-    $(".form").submit(function (event) {
-        console.log("Submit event fired");
-        $(".content-box").html("<h1>Thank you for contacting us</h1>" +
-            "<p>We will get back to you as soon as we can</p>");
-    });
-}

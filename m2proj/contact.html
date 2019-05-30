@@ -1,7 +1,7 @@
 <h1>Contact Us</h1>
 <p>Hello there! please contact us!</p>
-<form>
-    <table id="contact-form" class="form">
+<form method="POST">
+    <table id="contact-form">
 
         <tr>
             <td>Your Name (required): </td>
@@ -47,3 +47,9 @@
         </tr>
     </table>
 </form>
+<script>
+        $("form").submit(function (event) {
+        $(".content-box").html("<h1>Thank you for contacting us</h1>" +
+            "<p>We will get back to you as soon as we can</p>");
+    });
+</script>

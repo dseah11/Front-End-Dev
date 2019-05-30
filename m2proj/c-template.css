@@ -1,0 +1,14 @@
+.main-section{
+    float:left;
+    width:68%;
+    height: 650px;
+    border-right: 2px solid gray;
+    margin-right: 10px;
+}
+.side-nav{
+    right: 0;
+    top:0;
+    width: 30%;
+    margin:auto;
+    float: right;
+}

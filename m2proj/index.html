@@ -7,6 +7,7 @@
 
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="sitemap.css">
+    <link rel="stylesheet" href="c-template.css">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="script.js"></script>
 </head>
@@ -14,15 +15,16 @@
 <body>
     <header>
         <nav id="top-nav">
-            <a><img id="logo" src="img/abc-learning-logo.png"></a>
+            <a href="" onclick="changePage('')"><img id="logo" src="img/abc-learning-logo.png"></a>
             <ul>
                 <div id="tabs">
-                    <li class="tabs"><a href="#contact-us" onclick="changePage('contact.html')">Contact us</a></li>
-                    <li class="tabs"> <a href="#about-us" onclick="changePage('about.html')">About us</a></li>
-                    <li class="tabs"> <a href="#course" onclick="changePage('course-listing.html')">Course Listings</a>
+                    <li class="tabs"><a href="#contact" onclick="changePage('contact.html')">Contact us</a></li>
+                    <li class="tabs"> <a href="#about" onclick="changePage('about.html')">About us</a></li>
+                    <li class="tabs"> <a href="#course-listing" onclick="changePage('course-listing.html')">Course Listings</a>
                     </li>
-                    <li class="tabs"> <a href="#register" onclick="changePage('registration.html')">Registration
+                    <li class="tabs"> <a href="#registration" onclick="changePage('registration.html')">Registration
                             Form</a></li>
+                            <li><img id="loading" src="img/ajax_load.gif" alt="loading" /></li>
                 </div>
 
             </ul>
@@ -33,29 +35,7 @@
     <main>
         <div class="content-box">
 
-            <h1>Welcome to ABC Learning Centre</h1>
-            <article>
-                <h2>Latest News</h2>
-                <p>Placeholder</p>
-            </article>
-            <article>
-                <h2>Popular Courses</h2>
-                <p>Placeholder</p>
-            </article>
-            <p>914 translation by H. Rackham
 
-                "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born
-                and I will give you
-                a complete account of the system, and expound the actual teachings of the great explorer of the truth,
-                the master-builder of human happiness. No one rejects, dislikes,
-                or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue
-                pleasure rationally encounter consequences that are extremely painful.
-                Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain,
-                but because occasionally circumstances occur in which toil and pain can procure him some great pleasure.
-                To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain
-                some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure
-                that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?"
-            </p>
         </div>
     </main>
     <footer>
@@ -78,8 +58,8 @@
             <div class="seperator"></div>
             <div id="other-links">
                 <ul>
-                    <li><a href="#site-map" onclick="changePage('sitemap.html')">Site Map</a></li>
-                    <li><a href="#policies" onclick="changePage('privacy.html')">Privacy policy</a></li>
+                    <li><a href="#site-ap" onclick="changePage('sitemap.html')">Site Map</a></li>
+                    <li><a href="#privacy" onclick="changePage('privacy.html')">Privacy policy</a></li>
                 </ul>
 
 
