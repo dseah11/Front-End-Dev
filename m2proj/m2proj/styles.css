@@ -1,0 +1,120 @@
+html{
+    padding: 0;
+    margin: 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+body{
+    margin: 0;
+    padding: 0rem;
+    background-image: url("img/blackboard-chalkboard-communication-355988.jpg");
+}
+
+/* Top navigation bar settings */
+#logo{
+    float:left;
+    width: 80px;
+    height: 80px;
+    padding: 0 10px;
+    margin: 0 5px 0 30px;
+}
+nav{
+    background: beige;
+    height: 5rem;
+    width: 100%;
+    top:0;
+    left:0;
+    margin: 0 0 20px 0;
+}
+
+#top-nav ul{
+    margin: 0;
+    padding: 0;
+}
+#top-nav li{
+    list-style: none;
+    float: left;
+    padding: 1.29em;
+    text-align: center;
+    margin: 0;
+    font-size: 1.3em;
+}
+#tabs li:hover{
+    background: wheat;
+}
+/* Link settings in general */
+a{
+    color:olive;
+}
+a:hover{
+    color:chartreuse;
+}
+a:link{
+    text-decoration: none;
+}
+
+/* Container settings */
+.content-box{
+    background:white;
+    border: 2px solid gray;
+    margin: 3em auto 4em auto;
+    width: 70%;
+    min-height: 650px;
+    max-height: 650px;
+    overflow: auto;
+    padding: 0 10px;
+}
+/* Footer settings */
+#bot-nav{
+    background: beige;
+    bottom: 0;
+    height:125px;
+    margin:0;
+}
+#bot-nav h3{
+    color:greenyellow;
+    padding: 10px;
+    text-align: center;
+    margin:0;
+}
+#related-links{
+    height:80px;
+}
+#related-links ul{
+    margin: 0;
+}
+#related-links li{
+    list-style: none;
+    float: left;
+    padding: .92em;
+    text-align: center;
+    margin: 0;
+    font-size: 1.3em;
+
+    font-size: .98em;
+    width: 13%;
+    padding: 0 0 0 25px;
+}
+/* Removes float left */
+.seperator{
+    clear: both;
+    margin: 0;
+    padding: 0;
+}
+#other-links{
+    height:30px;
+    width:100%;
+    margin:0;
+}
+#other-links li{
+    list-style: none;
+    float: left;
+    padding: .92em;
+    text-align: center;
+    margin: 0;
+    font-size: 1.3em;
+
+    width:45%;
+    font-size: .8em;
+    padding: 0 0.9em;
+}
+

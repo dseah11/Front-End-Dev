@@ -1,0 +1,20 @@
+.map-headers{
+    clear:both;
+    text-decoration: underline;
+}
+.main-list{
+    max-height: 280px;
+    padding: 0%;
+}
+.main-list li{
+    list-style: none;
+    
+}
+.sub-list{
+    float: left;
+    padding: 0%;
+}
+.sub-list li{
+    list-style: none;
+
+}

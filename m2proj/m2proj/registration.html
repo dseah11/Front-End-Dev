@@ -1,0 +1,60 @@
+<h1>Registering Interest</h1>
+<h2>Express Your Intrest Now!</h2>
+<p>Placeholder</p>
+<form method="POST">
+    <table>
+
+        <tr>
+            <td>First Name:</td>
+            <td><input name="firstName" type="text" required /></td>
+        </tr>
+        <tr>
+            <td>Last Name:</td>
+            <td><input name="lastName" type="text" required /></td>
+        </tr>
+        <tr>
+            <td>
+                Gender:
+            </td>
+            <td>
+                Male<input name="gender" type="radio" value="male" checked />
+                Female<input name="gender" type="radio" value="female">
+            </td>
+
+        </tr>
+        <tr>
+            <td>
+                Residential Address:
+            </td>
+            <td>
+                <textarea name="address" rows="10" cols="60"></textarea>
+            </td>
+        <tr>
+            <td>
+                Phone No:
+            </td>
+            <td><input name="phoneNo" type="text" maxlength="11" /></td>
+        <tr>
+            <td>Select Course:</td>
+            <td>
+                <select name="course">
+
+                    <option value="course1">Basic HTML</option>
+                    <option value="course2">Basic Java</option>
+                    <option value="course3">Advanced HTML</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" name="submit" value="Submit"></td>
+        </tr>
+
+    </table>
+</form>
+<script>
+    $("form").submit(function (event) {
+    $(".content-box").html("<h1>Thank you for contacting us</h1>" +
+        "<p>We will get back to you as soon as we can</p>");
+});
+</script>

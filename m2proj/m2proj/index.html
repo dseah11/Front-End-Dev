@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <!-- <meta name="description" content="ABC Learning Centre - Providing Cutting Edge IT Lessons...Placeholder"> -->
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="sitemap.css">
+    <link rel="stylesheet" href="c-template.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="script.js"></script>
+</head>
+
+<body>
+    <!-- Top nav bar -->
+    <header>
+        <nav id="top-nav">
+            <a href="" onclick="changePage('')"><img id="logo" src="img/abc-learning-logo.png"></a>
+            <ul>
+                <div id="tabs">
+                    <!-- onclick function helps nav but address bar becomes useless -->
+                    <li class="tabs"><a href="#contact" onclick="changePage('contact.html')">Contact us</a></li>
+                    <li class="tabs"> <a href="#about" onclick="changePage('about.html')">About us</a></li>
+                    <li class="tabs"> <a href="#course-listing" onclick="changePage('course-listing.html')">Course Listings</a>
+                    </li>
+                    <li class="tabs"> <a href="#registration" onclick="changePage('registration.html')">Registration
+                            Form</a></li>
+                            <li><img id="loading" src="img/ajax_load.gif" alt="loading" /></li>
+                </div>
+
+            </ul>
+
+        </nav>
+    </header>
+    <div class="seperator"></div>
+    <main>
+        <div class="content-box">
+
+
+        </div>
+    </main>
+    <footer>
+        <nav id='bot-nav'>
+            <!-- Link containers based on categories? -->
+            <div id='related-links'>
+                <h3>Some links</h3>
+                <ul id="related-links">
+
+                    <li><a href="#">A link</a></li>
+                    <li><a href="#">A link</a></li>
+                    <li><a href="#">A link</a></li>
+                    <li><a href="#">A link</a></li>
+                    <li><a href="#">A link</a></li>
+                    <li><a href="#">A link</a></li>
+                </ul>
+
+            </div>
+
+            <div class="seperator"></div>
+            <div id="other-links">
+                <ul>
+                    <li><a href="#site-ap" onclick="changePage('sitemap.html')">Site Map</a></li>
+                    <li><a href="#privacy" onclick="changePage('privacy.html')">Privacy policy</a></li>
+                </ul>
+
+
+            </div>
+        </nav>
+    </footer>
+</body>
+
+</html>
