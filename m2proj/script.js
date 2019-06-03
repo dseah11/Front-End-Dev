@@ -1,10 +1,49 @@
 
 //When document is read, load home page
 $(document).ready(function(){
-    $('#loading').css('visibility','visible');
+    
+    checkURL();
+    // This is redundant as the webpage already has onclick functions
+    // $("a").click(function(e){
+    //     checkURL(this.hash);
+    // })
     loadHome();
-    $('#loading').css('visibility','hidden');
+    
+    //constant check of url at a set interval. Not sure why it's 250 though. Responsible for 
+    //going backward and forward in history.
+    setInterval("checkURL()", 250);
 })
+//Save point for previous url
+var lasturl="";
+
+//checks url using hash. Hash is possibly provided by browser.
+function checkURL(hash)
+{
+    //if no hash, then hash shall be the current location, minus #
+	if(!hash){
+        hash=window.location.hash;
+    } 
+
+    //IF there is a change in url....
+	if(hash != lasturl)
+	{
+		lasturl=hash;
+		// FIX - if we've used the history buttons to return to the homepage,
+		// fill the pageContent with the default_content
+		if(hash=="")
+        loadHome();
+
+        //if it's course-details, do nothing. The site should only be accessible from course-list.html
+        else if(hash==="#course-detail"){
+            return;
+        }
+		else{
+        hash=hash.replace("#", "");
+        hash += ".html";
+        changePage(hash);
+		}
+	}
+}
 
 //changes pages by calling ajax and replacing the contents of .content-box
 function changePage(url) {
@@ -16,11 +55,8 @@ function changePage(url) {
         $.ajax({
             url: url,
             success: function (data) {
-                console.log("visible!");
-                $('#loading').css('visibility','hidden');
-                console.log("not visible!");
                 $(".content-box").html(data);
-                
+                $('#loading').css('visibility','hidden');
             },
         });
     }
@@ -30,6 +66,8 @@ function changePage(url) {
 // This function loads a course template. Upon loading,
 // the course json file is loaded and its data is extracted based on the id provided
 // there might be a better way of doign this though
+
+var curPrice = 0;
 function showCourseDetail(id) {
     changePage('course-template.html');
     $(document).ready(function(){
@@ -42,7 +80,7 @@ function showCourseDetail(id) {
                     $("#c-desc").text(this.course_description);
                     $("#c-reccomend").text(this.course_recommend);
                     $("#c-price").append(this.course_price);
-
+                    curPrice = this.course_price;
                 }
             });
             
@@ -82,6 +120,7 @@ function calcCurrency(currCode, amount){
 //Looks intimidating but this is merely placing the home page html in a string
 //before loading up into the content-box
 function loadHome(){
+    $('#loading').css('visibility','visible');
     var home = `
     <h1>Welcome to ABC Learning Centre</h1>
     <article>
@@ -107,6 +146,7 @@ function loadHome(){
         that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?"
     </p>`;
     $(".content-box").html(home);
+    $('#loading').css('visibility','hidden');
 }
 
 

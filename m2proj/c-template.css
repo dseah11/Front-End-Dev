@@ -12,3 +12,8 @@
     margin:auto;
     float: right;
 }
+#reg-button{
+    -moz-appearance: button;
+    -webkit-appearance: button;
+    appearance: button;
+}
