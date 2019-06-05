@@ -3,30 +3,30 @@
         {
             "course_id":"HTML001",
             "course_name": "Basic HTML Course",
-            "course_description": "This is a basic HTML course",
+            "course_description": "This is a basic HTML course where for individuals without IT background",
             "course_recommend": "Recommended for complete beginners",
-            "course_price": 450.20
+            "course_price": 450
         },
         {
             "course_id":"HTML002",
             "course_name": "Advanced HTML Course",
-            "course_description": "This is an advanced HTML course",
+            "course_description": "This is an advanced HTML course that wishes to pursue Front-end Development",
             "course_recommend": "Recommended for Professionals",
-            "course_price": 1200.90
+            "course_price": 1300
         },
         {
             "course_id":"JAVA001",
             "course_name": "Basic JAVA Course",
-            "course_description": "This is a basic Java course",
+            "course_description": "This is a basic Java course for complete beginners. The basics includes the basics of Object Oriented Programming (OOP).",
             "course_recommend": "Recommended for complete beginners",
-            "course_price": 450.20
+            "course_price": 440
         },
         {
             "course_id":"JAVA002",
             "course_name": "Advanced JAVA Course",
-            "course_description": "This is an advanced Java course",
+            "course_description": "This is an advanced Java course that includes Java EE foundations.",
             "course_recommend": "Recommended for Professionals",
-            "course_price": 1200.90
+            "course_price": 1500
         }
     ]
 }

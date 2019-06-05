@@ -12,7 +12,7 @@
     margin:auto;
     float: right;
 }
-#reg-button{
+.c-button{
     -moz-appearance: button;
     -webkit-appearance: button;
     appearance: button;

@@ -8,6 +8,9 @@ body{
     padding: 0rem;
     background-image: url("img/blackboard-chalkboard-communication-355988.jpg");
 }
+ul li{
+    list-style: none;
+}
 
 /* Top navigation bar settings */
 #logo{

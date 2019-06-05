@@ -1,150 +1,158 @@
-
 //When document is read, load home page
-$(document).ready(function(){
-    
+$(document).ready(function () {
+
     checkURL();
     // This is redundant as the webpage already has onclick functions
     // $("a").click(function(e){
     //     checkURL(this.hash);
     // })
     loadHome();
-    
+
     //constant check of url at a set interval. Not sure why it's 250 though. Responsible for 
     //going backward and forward in history.
     setInterval("checkURL()", 250);
 })
 //Save point for previous url
-var lasturl="";
+var lasturl = "";
 
 //checks url using hash. Hash is possibly provided by browser.
-function checkURL(hash)
-{
+function checkURL(hash) {
     //if no hash, then hash shall be the current location, minus #
-	if(!hash){
-        hash=window.location.hash;
-    } 
+    if (!hash) {
+        hash = window.location.hash;
+    }
 
     //IF there is a change in url....
-	if(hash != lasturl)
-	{
-		lasturl=hash;
-		// FIX - if we've used the history buttons to return to the homepage,
-		// fill the pageContent with the default_content
-		if(hash=="")
-        loadHome();
+    if (hash != lasturl) {
+        lasturl = hash;
+        // FIX - if we've used the history buttons to return to the homepage,
+        // fill the pageContent with the default_content
 
-        //if it's course-details, do nothing. The site should only be accessible from course-list.html
-        else if(hash==="#course-listing"){
-            $('#loading').css('visibility','visible');
-            displayCourse();
-            $('#loading').css('visibility','hidden');
+        //switch to check individual courses
+        console.log("Current hash: " + hash);
+        switch (hash) {
+            case "":
+                loadHome();
+                break;
+            case "#course-listing":
+                displayCourse();
+                break;
+            case "#HTML001":
+            case "#HTML002":
+            case "#JAVA001":
+            case "#JAVA002":
+                hash = hash.replace("#", "")
+                showCourseDetail(hash);
+                console.log("Course page loading...");
+                break;
+            default:
+                hash = hash.replace("#", "");
+                hash += ".html";
+                changePage(hash);
+                break;
         }
-		else{
-        hash=hash.replace("#", "");
-        hash += ".html";
-        changePage(hash);
-		}
-	}
+    }
 }
 
 //changes pages by calling ajax and replacing the contents of .content-box
 function changePage(url) {
-    $('#loading').css('visibility','visible');
-    if(url === ""){
+
+    if (url === "") {
         loadHome();
-    }
-    else{
+    } else {
         $.ajax({
             url: url,
             success: function (data) {
+                $('#loading').css('visibility', 'visible');
+                console.log("Loading button Visible");
                 $(".content-box").html(data);
-                $('#loading').css('visibility','hidden');
+                $('#loading').css('visibility', 'hidden');
+                console.log("Loading button not Visible");
             },
         });
     }
-    
+
 }
 
-function displayCourse(){
+//Function that displays ALL courses available in the Course JSON file
+function displayCourse() {
+    $('#loading').css('visibility', 'visible');
+    console.log("course is loading");
     var str = '<h1>Courses Available</h1>';
     var url = "courses.json";
-        $.getJSON(url, function(data){
-            $.each(data.courses, function(){              
-                str += "<h2>Cost: SGD$"+ this.course_price + "</h2>"
-                str += '<h2><a href="#' + this.course_id + '" onclick="showCourseDetail(\''+ 
-                        this.course_id + '\')">' + this.course_name + '</a> </h2>' +
-                        '<ul><li>Cost: ' + this.course_price + '</li>' +
-                        '<li>Description: '+ this.course_description + '</li>' +
-                        '</ul><br>';
-            });
-            $('.content-box').html(str);
+    $.getJSON(url, function (data) {
+        $.each(data.courses, function () {
+            str += '<h2><a href="#' + this.course_id + '" onclick="showCourseDetail(\'' +
+                this.course_id + '\')">' + this.course_name + '</a> </h2>' +
+                '<ul><li>Cost: ' + this.course_price + '</li>' +
+                '<li>Description: ' + this.course_description + '</li>' +
+                '</ul><br>';
         });
-    
+        $('.content-box').html(str);
+    });
+    $('#loading').css('visibility', 'hidden');
+    console.log("course has loaded");
 }
 
-// This function loads a course template. Upon loading,
-// the course json file is loaded and its data is extracted based on the id provided
+// This function loads a shell html file. Upon loading,
+// the course json file is loaded and its data is onto the relevant classes provided
 // there might be a better way of doign this though
+function showCourseDetail(url) {
+    changePage(url + ".html");
 
-
-function showCourseDetail(id) {
-    changePage('course-template.html');
-    $(document).ready(function(){
+    $(document).ready(function () {
         $.getJSON("courses.json", function (data) {
             $.each(data.courses, function () {
-                if (this.course_id === id) {
+                if (this.course_id === url) {
                     //change page to course template
-                    
-                    $("#c-title").append(this.course_name);
-                    $("#c-desc").text(this.course_description);
-                    $("#c-reccomend").text(this.course_recommend);
-                    $("#c-price").append(this.course_price);
 
-                    var str = '<a href="#' + this.course_id + '-schedule" onclick="changePage(\''+ 
-                    this.course_id + '-schedule.html\')"';
-                    $("#c-schedule").html(str);
-                    console.log(str);
+                    $(".c-title").append(this.course_name);
+                    $(".c-desc").text(this.course_description);
+                    $(".c-reccomend").text(this.course_recommend);
+                    $(".c-price").append(this.course_price);
+
+                    var str = '<a class="c-button" href="#' + this.course_id + '-schedule" onclick="changePage(\'' +
+                        this.course_id + '-schedule.html\')">Check Course Schedule!</a>';
+                    $(".c-schedule").html(str);
+
                     curPrice = this.course_price;
                 }
             });
-            
+
         });
     });
 }
 //Submit events done by js. Not what is required here. Validation must be done in js in this case
 function showCurrency(cost) {
+
     var currCode = $("#price-option").val();
-    var amount= parseInt(cost.replace('In SGD: $',''));
+    console.log(currCode);
+    var amount = parseInt(cost.replace('In SGD: $', ''));
     calcCurrency(currCode, amount);
 
-    
+
 }
 //calc the currency and places the amount back into the page
-function calcCurrency(currCode, amount){
+function calcCurrency(currCode, amount) {
     var url = "currency.json";
     var details = "";
     $.getJSON(url, function (data) {
-        // console.log("Currency Json started");
-        $.each(data.currencies, function(){
+
+        $.each(data.currencies, function () {
             if (currCode == this.code) {
-                // console.log(this.code);
-                // console.log(currCode);
-                // console.log("Before change: " + amount);
                 amount *= this.conversion;
-                details += this.name + ": "+ this.code + " " + amount;
-            // console.log(details);
-            // console.log("after change: " + amount)
+                details += this.name + ": " + this.code + " " + amount;
             }
         })
-        $("#price-indicator").text(details);
+        $(".price-indicator").text(details);
     });
-    
+
 }
 
 //Looks intimidating but this is merely placing the home page html in a string
 //before loading up into the content-box
-function loadHome(){
-    $('#loading').css('visibility','visible');
+function loadHome() {
+    $('#loading').css('visibility', 'visible');
     var home = `
     <h1>Welcome to ABC Learning Centre</h1>
     <article>
@@ -170,7 +178,5 @@ function loadHome(){
         that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?"
     </p>`;
     $(".content-box").html(home);
-    $('#loading').css('visibility','hidden');
+    $('#loading').css('visibility', 'hidden');
 }
-
-
