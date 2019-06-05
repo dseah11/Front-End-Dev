@@ -34,8 +34,10 @@ function checkURL(hash)
         loadHome();
 
         //if it's course-details, do nothing. The site should only be accessible from course-list.html
-        else if(hash==="#course-detail"){
-            return;
+        else if(hash==="#course-listing"){
+            $('#loading').css('visibility','visible');
+            displayCourse();
+            $('#loading').css('visibility','hidden');
         }
 		else{
         hash=hash.replace("#", "");
@@ -63,11 +65,28 @@ function changePage(url) {
     
 }
 
+function displayCourse(){
+    var str = '<h1>Courses Available</h1>';
+    var url = "courses.json";
+        $.getJSON(url, function(data){
+            $.each(data.courses, function(){              
+                str += "<h2>Cost: SGD$"+ this.course_price + "</h2>"
+                str += '<h2><a href="#' + this.course_id + '" onclick="showCourseDetail(\''+ 
+                        this.course_id + '\')">' + this.course_name + '</a> </h2>' +
+                        '<ul><li>Cost: ' + this.course_price + '</li>' +
+                        '<li>Description: '+ this.course_description + '</li>' +
+                        '</ul><br>';
+            });
+            $('.content-box').html(str);
+        });
+    
+}
+
 // This function loads a course template. Upon loading,
 // the course json file is loaded and its data is extracted based on the id provided
 // there might be a better way of doign this though
 
-var curPrice = 0;
+
 function showCourseDetail(id) {
     changePage('course-template.html');
     $(document).ready(function(){
@@ -80,6 +99,11 @@ function showCourseDetail(id) {
                     $("#c-desc").text(this.course_description);
                     $("#c-reccomend").text(this.course_recommend);
                     $("#c-price").append(this.course_price);
+
+                    var str = '<a href="#' + this.course_id + '-schedule" onclick="changePage(\''+ 
+                    this.course_id + '-schedule.html\')"';
+                    $("#c-schedule").html(str);
+                    console.log(str);
                     curPrice = this.course_price;
                 }
             });
